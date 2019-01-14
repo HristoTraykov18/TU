@@ -1,7 +1,0 @@
-D:\Users\Hristo18\Documents\Visual Studio 2017\Projects\TU\InformaticsExam\TaskTwo\bin\Debug\TaskTwo.exe.config
-D:\Users\Hristo18\Documents\Visual Studio 2017\Projects\TU\InformaticsExam\TaskTwo\bin\Debug\TaskTwo.exe
-D:\Users\Hristo18\Documents\Visual Studio 2017\Projects\TU\InformaticsExam\TaskTwo\bin\Debug\TaskTwo.pdb
-D:\Users\Hristo18\Documents\Visual Studio 2017\Projects\TU\InformaticsExam\TaskTwo\obj\Debug\TaskTwo.csproj.CoreCompileInputs.cache
-D:\Users\Hristo18\Documents\Visual Studio 2017\Projects\TU\InformaticsExam\TaskTwo\obj\Debug\TaskTwo.exe
-D:\Users\Hristo18\Documents\Visual Studio 2017\Projects\TU\InformaticsExam\TaskTwo\obj\Debug\TaskTwo.pdb
-D:\Users\Hristo18\Documents\Visual Studio 2017\Projects\TU\InformaticsExam\TaskTwo\obj\Debug\TaskTwo.csprojResolveAssemblyReference.cache
