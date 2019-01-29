@@ -33,8 +33,9 @@
             this.label = new System.Windows.Forms.Label();
             this.buttonTriangle = new System.Windows.Forms.Button();
             this.buttonRectangle = new System.Windows.Forms.Button();
-            this.buttonLine = new System.Windows.Forms.Button();
+            this.buttonCircle = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.checkBoxFilled = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonImport
@@ -95,18 +96,18 @@
             this.buttonRectangle.Visible = false;
             this.buttonRectangle.Click += new System.EventHandler(this.buttonRectangle_Click);
             // 
-            // buttonLine
+            // buttonCircle
             // 
-            this.buttonLine.Enabled = false;
-            this.buttonLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonLine.Location = new System.Drawing.Point(240, 210);
-            this.buttonLine.Name = "buttonLine";
-            this.buttonLine.Size = new System.Drawing.Size(120, 40);
-            this.buttonLine.TabIndex = 6;
-            this.buttonLine.Text = "Line";
-            this.buttonLine.UseVisualStyleBackColor = true;
-            this.buttonLine.Visible = false;
-            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
+            this.buttonCircle.Enabled = false;
+            this.buttonCircle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonCircle.Location = new System.Drawing.Point(240, 210);
+            this.buttonCircle.Name = "buttonCircle";
+            this.buttonCircle.Size = new System.Drawing.Size(120, 40);
+            this.buttonCircle.TabIndex = 6;
+            this.buttonCircle.Text = "Circle";
+            this.buttonCircle.UseVisualStyleBackColor = true;
+            this.buttonCircle.Visible = false;
+            this.buttonCircle.Click += new System.EventHandler(this.buttonLine_Click);
             // 
             // buttonSave
             // 
@@ -121,13 +122,29 @@
             this.buttonSave.Visible = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // checkBoxFilled
+            // 
+            this.checkBoxFilled.AutoSize = true;
+            this.checkBoxFilled.Enabled = false;
+            this.checkBoxFilled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBoxFilled.Location = new System.Drawing.Point(120, 181);
+            this.checkBoxFilled.Name = "checkBoxFilled";
+            this.checkBoxFilled.Size = new System.Drawing.Size(80, 29);
+            this.checkBoxFilled.TabIndex = 7;
+            this.checkBoxFilled.Text = "Filled";
+            this.checkBoxFilled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxFilled.UseVisualStyleBackColor = true;
+            this.checkBoxFilled.Visible = false;
+            this.checkBoxFilled.CheckedChanged += new System.EventHandler(this.checkBoxFilled_CheckedChanged);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 253);
+            this.Controls.Add(this.checkBoxFilled);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonLine);
+            this.Controls.Add(this.buttonCircle);
             this.Controls.Add(this.buttonRectangle);
             this.Controls.Add(this.buttonTriangle);
             this.Controls.Add(this.label);
@@ -150,8 +167,9 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button buttonTriangle;
         private System.Windows.Forms.Button buttonRectangle;
-        private System.Windows.Forms.Button buttonLine;
+        private System.Windows.Forms.Button buttonCircle;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.CheckBox checkBoxFilled;
     }
 }
 

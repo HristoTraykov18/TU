@@ -1,8 +1,11 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Drawing;
 
 namespace ProjectLibrary
 {
-    public class Rectangle : BaseFigure
+    class Circle : BaseFigure
     {
         public Point Position { get; set; }
         public int width { get; set; }
@@ -11,7 +14,7 @@ namespace ProjectLibrary
         public Color color { get; set; }
         public bool filled { get; set; }
 
-        public Rectangle(Point p, int w, int h, int i, Color c, bool fill)
+        public Circle(Point p, int w, int h, int i, Color c, bool fill)
         {
             Position = p;
             width = w;
@@ -23,7 +26,7 @@ namespace ProjectLibrary
 
         public override void Draw(IRenderer ir)
         {
-            ir.DrawRectangle(Position.X, Position.Y, width, height, index, color, filled);
+            ir.DrawCircle(Position.X, Position.Y, width, height, index, color, filled);
         }
 
         public override bool IsClicked(Point mPosition)
@@ -38,7 +41,7 @@ namespace ProjectLibrary
             height = width;
             width = temp;
 
-            ir.DrawRectangle(Position.X, Position.Y, width, height, index, color, filled);
+            ir.DrawCircle(Position.X, Position.Y, width, height, index, color, filled);
         }
     }
 }
