@@ -19,8 +19,20 @@ namespace CourseProject
         public void DrawCircle(int xStart, int yStart, int width, int height, int index, Color c, bool filled)
         {
             Graphics g = form.CreateGraphics();
-            using (Pen p = new Pen(c, 3))
-                g.DrawEllipse(p, new System.Drawing.Rectangle(xStart, yStart, width, height));
+            if (filled)
+            {
+                using (SolidBrush sBr = new SolidBrush(c))
+                {
+                    g.FillEllipse(sBr, new System.Drawing.Rectangle(xStart, yStart, width, height));
+                    sBr.Dispose();
+                }
+            }
+            else
+            {
+                using (Pen p = new Pen(c, 3))
+                    g.DrawEllipse(p, new System.Drawing.Rectangle(xStart, yStart, width, height));
+            }
+            g.Dispose();
         }
 
         public void DrawLine(int xStart, int yStart, int xEnd, int yEnd, Color c)
@@ -28,11 +40,20 @@ namespace CourseProject
             Graphics g = form.CreateGraphics();
             using (Pen p = new Pen(c, 3))
                 g.DrawLine(p, xStart, yStart, xEnd, yEnd);
+            g.Dispose();
         }
         public void DrawTriangle(int xStart, int yStart, int width, int height, int index, Color c, bool filled)
         {
             if (filled)
             {
+                Graphics g = form.CreateGraphics();
+                using (SolidBrush sBr = new SolidBrush(c))
+                {
+                    Point[] figurePoints = { new Point(xStart, yStart), new Point(xStart + width, yStart),
+                                             new Point(xStart, yStart + height) };
+                    g.FillPolygon(sBr, figurePoints);
+                    sBr.Dispose();
+                }
                 DrawLine(xStart, yStart, xStart, (yStart + height), c);
                 DrawLine(xStart, yStart, (xStart + width), yStart, c);
                 DrawLine((xStart + width), yStart, xStart, (yStart + height), c);
@@ -50,13 +71,17 @@ namespace CourseProject
             if (filled)
             {
                 using (SolidBrush sBr = new SolidBrush(c))
+                {
                     g.FillRectangle(sBr, xStart, yStart, width, height);
+                    sBr.Dispose();
+                }
             }
             else
             {
                 using (Pen p = new Pen(c, 3))
                     g.DrawRectangle(p, xStart, yStart, width, height);
             }
+            g.Dispose();
         }
     }
 }

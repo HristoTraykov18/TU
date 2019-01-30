@@ -13,8 +13,9 @@ namespace CourseProject
 {
     public partial class mainForm : Form
     {
-        FormsRenderer renderer;
         Scene sc;
+        FormsRenderer renderer;
+
         bool filled = false;
         int xStart, yStart, width = -1, height = -1;
 
@@ -121,13 +122,21 @@ namespace CourseProject
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    //sc.MouseKeyEvent(Scene.MouseKeyCode.Left, new Point(e.X, e.Y));
+                    sc.SelectFigure(new Point(e.X, e.Y));
+
                     break;
                 case MouseButtons.Middle:
                     sc.RotateFigures(new Point(e.X, e.Y));
                     break;
                 case MouseButtons.Right:
-                    //sc.MouseKeyEvent(Scene.MouseKeyCode.Right, new Point(e.X, e.Y));
+                    if (filled)
+                    {
+                        ColorDialog ColorPicker = new ColorDialog();
+                        if (ColorPicker.ShowDialog() == DialogResult.OK)
+                            sc.ChangeFigureColor(new Point(e.X, e.Y), ColorPicker.Color, true);
+                    }
+                    else
+                        sc.ChangeFigureColor(new Point(e.X, e.Y), this.BackColor, false);
                     break;
             }
         }

@@ -21,16 +21,16 @@ namespace ProjectLibrary
             filled = fill;
         }
 
+        public override void ClearFill() { filled = false; }
+
+        public override void ColorChange(Color color) { this.color = color; }
+
         public override void Draw(IRenderer ir)
         {
             ir.DrawRectangle(Position.X, Position.Y, width, height, index, color, filled);
         }
 
-        public override bool IsClicked(Point mPosition)
-        {
-            return (mPosition.X >= Position.X && mPosition.X <= Position.X + width &&
-                    mPosition.Y >= Position.Y && mPosition.Y <= Position.Y + height);
-        }
+        public override void Fill() { filled = true; }
 
         public override void Rotate(IRenderer ir)
         {

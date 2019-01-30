@@ -11,7 +11,7 @@ namespace ProjectLibrary
         public int index { get; set; }
         public Color color { get; set; }
         public bool filled { get; set; }
-
+        
         public Triangle(Point p, int w, int h, int i, Color c, bool fill)
         {
             Position = p;
@@ -22,10 +22,16 @@ namespace ProjectLibrary
             filled = fill;
         }
 
+        public override void ClearFill() { filled = false; }
+
+        public override void ColorChange(Color color) { this.color = color; }
+
         public override void Draw(IRenderer ir)
         {
             ir.DrawTriangle(Position.X, Position.Y, width, height, index, color, filled);
         }
+
+        public override void Fill() { filled = true; }
 
         public override bool IsClicked(Point mPosition)
         {

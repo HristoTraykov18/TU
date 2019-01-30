@@ -85,7 +85,7 @@ namespace CourseProject
         {
             if (Width > 9 && Height > 9 && X_Start > 0 && Y_Start > 0)
             {
-                if (Y_Start < 50)
+                if (Y_Start < 95)
                 {
                     labelAlert.Text = "CAN NOT DRAW THERE";
                     labelAlert.Show();

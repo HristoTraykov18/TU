@@ -9,41 +9,50 @@ namespace ProjectLibrary
     public class Scene // The scene in which all the functionality is done
     {
         static internal List<BaseFigure> _figures = new List<BaseFigure>();
-        static internal int index = 1;
+        static internal List<BaseFigure> _selected = new List<BaseFigure>();
+        private int index = 1;
         public IRenderer renderer;
 
         public Scene(IRenderer ir) { renderer = ir; }
 
-        /*public enum MouseKeyCode { Left, Right, Middle };
-
-        public void MouseKeyEvent(MouseKeyCode mButton, Point mPosition)
+        public enum MouseKeyButton { Left, Middle, Right };
+        
+        public void ChangeFigureColor(Point mPosition, Color color, bool filled) // If filled is true the figure should be/stay filled
         {
             foreach (BaseFigure figure in _figures)
             {
-                switch (mButton)
+                if (figure.IsClicked(mPosition))
                 {
-                    case MouseKeyCode.Left:
-                        if (figure.IsClicked(mPosition))
-                            figure.Rotate(renderer);
-                        break;
+                    if (filled)
+                    {
+                        figure.Fill();
+                        figure.ColorChange(color);
+                    }
+                    else
+                    {
+                        figure.ClearFill();
+                        renderer.Clear(color);
+                    }
                 }
             }
-        }*/
+            foreach (BaseFigure figure in _figures)
+                figure.Draw(renderer);
+        }
 
-        public void DrawFigures(int type, int xStart, int yStart, int width, int height, bool filled)
+        public void DrawFigures(int figureType, int xStart, int yStart, int width, int height, bool filled)
         {
-            switch (type)
+            switch (figureType)
             {
                 case 1:
-                    Triangle newTriangle = new Triangle(new Point(xStart, yStart), width, height, index, Color.Orange, true);
+                    Triangle newTriangle = new Triangle(new Point(xStart, yStart), width, height, index, Color.Orange, filled);
                     _figures.Add(newTriangle);
                     break;
                 case 2:
-                    Rectangle newRectangle = new Rectangle(new Point(xStart, yStart), width, height, index, Color.Orange, false);
+                    Rectangle newRectangle = new Rectangle(new Point(xStart, yStart), width, height, index, Color.Orange, filled);
                     _figures.Add(newRectangle);
                     break;
                 case 3:
-                    Circle newCircle = new Circle(new Point(xStart, yStart), width, height, index, Color.Orange, false);
+                    Circle newCircle = new Circle(new Point(xStart, yStart), width, height, index, Color.Orange, filled);
                     _figures.Add(newCircle);
                     break;
             }
@@ -71,13 +80,40 @@ namespace ProjectLibrary
             }
         }
 
+        public void MouseKeyEvent(MouseKeyButton mButton, Point mPosition)
+        {
+            foreach (BaseFigure figure in _figures)
+            {
+                switch (mButton)
+                {
+                    case MouseKeyButton.Left:
+                        //if (figure.IsClicked(mPosition))
+                        //
+                        break;
+                    case MouseKeyButton.Middle:
+                        //if (figure.IsClicked(mPosition))
+                        //
+                        break;
+                    case MouseKeyButton.Right:
+                        //if (figure.IsClicked(mPosition))
+                        //
+                        break;
+                }
+            }
+        }
+
+        public void MoveFigure(Point mPosition)
+        {
+
+        }
+
         public void RotateFigures(Point mPosition)
         {
             foreach (BaseFigure figure in _figures)
             {
                 if (figure.IsClicked(mPosition))
                 {
-                    renderer.Clear(figure.color);
+                    renderer.Clear(Color.White);
                     figure.Rotate(renderer);
                 }
             }
@@ -100,6 +136,11 @@ namespace ProjectLibrary
             {
                 return false;
             }
+        }
+
+        public void SelectFigure(Point mPosition)
+        {
+
         }
     }
 }
