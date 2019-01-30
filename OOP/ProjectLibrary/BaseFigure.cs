@@ -33,7 +33,7 @@ namespace ProjectLibrary
             color = c;
             filled = fill;
         }
-        
+
 
         public virtual void ClearFill() { filled = false; }
 
@@ -44,6 +44,8 @@ namespace ProjectLibrary
             // Draw Something. Will be overridden for each figure
         }
 
+        public void SetNewIndex(int i) { index = i; }
+
         public virtual void Fill() { filled = true; }
 
         public virtual bool IsClicked(Point mPosition)
@@ -52,7 +54,7 @@ namespace ProjectLibrary
                     mPosition.Y >= Position.Y && mPosition.Y <= Position.Y + height);
         }
 
-        public virtual bool IsNotInBounds(int xStart, int yStart, int width, int height)
+        public bool IsNotInBounds(int xStart, int yStart, int width, int height)
         {
             return xStart + width > 800 || xStart + width < 0 || 
                    yStart + height > 600 || yStart + height < 90;

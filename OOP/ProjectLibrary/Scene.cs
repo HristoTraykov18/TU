@@ -63,12 +63,20 @@ namespace ProjectLibrary
 
         public bool ImportFigures(string file)
         {
+            List<BaseFigure> _figuresToImport = new List<BaseFigure>();
             try
             {
                 using (Stream stream = File.Open(file, FileMode.Open))
                 {
                     var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                    _figures = (List<BaseFigure>)binaryFormatter.Deserialize(stream);
+                    _figuresToImport = (List<BaseFigure>)binaryFormatter.Deserialize(stream);
+                }
+                int temp = 0;
+                foreach (BaseFigure figure in _figuresToImport)
+                {
+                    figure.SetNewIndex(index + temp);
+                    _figures.Add(figure);
+                    temp++;
                 }
                 foreach (BaseFigure figure in _figures)
                     figure.Draw(renderer);
@@ -139,7 +147,11 @@ namespace ProjectLibrary
 
         public void SelectFigure(Point mPosition)
         {
-
+            foreach (BaseFigure figure in _figures)
+            {
+                if (figure.IsClicked(mPosition))
+                    _selected.Add(figure);
+            }
         }
     }
 }

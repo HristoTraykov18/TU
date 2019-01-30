@@ -25,8 +25,6 @@ namespace CourseProject
             this.CenterToScreen();
             renderer = new FormsRenderer(this);
             sc = new Scene(renderer);
-            //this.Invalidate();
-            //this.Update();
         }
 
         private void buttonCircle_Click(object sender, EventArgs e)
@@ -129,11 +127,6 @@ namespace CourseProject
             }
         }
 
-        private void mainForm_Paint(object sender, PaintEventArgs e)
-        {
-            sc.Redraw();
-        }
-
         private void buttonRectangle_Click(object sender, EventArgs e)
         {
             labelStatus.Hide();
@@ -158,7 +151,6 @@ namespace CourseProject
             {
                 case MouseButtons.Left:
                     sc.SelectFigure(new Point(e.X, e.Y));
-
                     break;
                 case MouseButtons.Middle:
                     sc.RotateFigures(new Point(e.X, e.Y));
@@ -174,6 +166,11 @@ namespace CourseProject
                         sc.ChangeFigureColor(new Point(e.X, e.Y), this.BackColor, false);
                     break;
             }
+        }
+
+        private void mainForm_Paint(object sender, PaintEventArgs e)
+        {
+            sc.Redraw();
         }
     }
 }
