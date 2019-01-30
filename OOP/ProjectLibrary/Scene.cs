@@ -52,7 +52,7 @@ namespace ProjectLibrary
                     _figures.Add(newRectangle);
                     break;
                 case 3:
-                    Circle newCircle = new Circle(new Point(xStart, yStart), width, height, index, Color.Orange, filled);
+                    Ellipse newCircle = new Ellipse(new Point(xStart, yStart), width, height, index, Color.Orange, filled);
                     _figures.Add(newCircle);
                     break;
             }
@@ -74,7 +74,7 @@ namespace ProjectLibrary
                     figure.Draw(renderer);
                 return true;
             }
-            catch (System.Runtime.Serialization.SerializationException)
+            catch (IOException)
             {
                 return false;
             }
@@ -107,6 +107,12 @@ namespace ProjectLibrary
 
         }
 
+        public void Redraw()
+        {
+            foreach (BaseFigure figure in _figures)
+                figure.Draw(renderer);
+        }
+
         public void RotateFigures(Point mPosition)
         {
             foreach (BaseFigure figure in _figures)
@@ -123,18 +129,11 @@ namespace ProjectLibrary
 
         public bool SaveFigures(string file, bool append = false)
         {
-            try
+            using (Stream stream = File.Open(file, append ? FileMode.Append : FileMode.Create))
             {
-                using (Stream stream = File.Open(file, append ? FileMode.Append : FileMode.Create))
-                {
-                    var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                    binaryFormatter.Serialize(stream, _figures);
-                    return true;
-                }
-            }
-            catch (System.Runtime.Serialization.SerializationException)
-            {
-                return false;
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                binaryFormatter.Serialize(stream, _figures);
+                return true;
             }
         }
 

@@ -36,12 +36,13 @@
             this.buttonCircle = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.checkBoxFilled = new System.Windows.Forms.CheckBox();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonImport
             // 
             this.buttonImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonImport.Location = new System.Drawing.Point(40, 100);
+            this.buttonImport.Location = new System.Drawing.Point(33, 100);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(150, 50);
             this.buttonImport.TabIndex = 3;
@@ -72,7 +73,6 @@
             // 
             // buttonTriangle
             // 
-            this.buttonTriangle.Enabled = false;
             this.buttonTriangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonTriangle.Location = new System.Drawing.Point(0, 210);
             this.buttonTriangle.Name = "buttonTriangle";
@@ -85,7 +85,6 @@
             // 
             // buttonRectangle
             // 
-            this.buttonRectangle.Enabled = false;
             this.buttonRectangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonRectangle.Location = new System.Drawing.Point(120, 210);
             this.buttonRectangle.Name = "buttonRectangle";
@@ -98,7 +97,6 @@
             // 
             // buttonCircle
             // 
-            this.buttonCircle.Enabled = false;
             this.buttonCircle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonCircle.Location = new System.Drawing.Point(240, 210);
             this.buttonCircle.Name = "buttonCircle";
@@ -107,11 +105,10 @@
             this.buttonCircle.Text = "Circle";
             this.buttonCircle.UseVisualStyleBackColor = true;
             this.buttonCircle.Visible = false;
-            this.buttonCircle.Click += new System.EventHandler(this.buttonLine_Click);
+            this.buttonCircle.Click += new System.EventHandler(this.buttonCircle_Click);
             // 
             // buttonSave
             // 
-            this.buttonSave.Enabled = false;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonSave.Location = new System.Drawing.Point(0, 170);
             this.buttonSave.Name = "buttonSave";
@@ -125,7 +122,6 @@
             // checkBoxFilled
             // 
             this.checkBoxFilled.AutoSize = true;
-            this.checkBoxFilled.Enabled = false;
             this.checkBoxFilled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.checkBoxFilled.Location = new System.Drawing.Point(120, 181);
             this.checkBoxFilled.Name = "checkBoxFilled";
@@ -137,11 +133,24 @@
             this.checkBoxFilled.Visible = false;
             this.checkBoxFilled.CheckedChanged += new System.EventHandler(this.checkBoxFilled_CheckedChanged);
             // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStatus.ForeColor = System.Drawing.Color.Black;
+            this.labelStatus.Location = new System.Drawing.Point(12, 10);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(68, 25);
+            this.labelStatus.TabIndex = 8;
+            this.labelStatus.Text = "Status";
+            this.labelStatus.Visible = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 253);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.checkBoxFilled);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCircle);
@@ -155,6 +164,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "mainForm";
             this.Text = "Drawing";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.mainForm_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainForm_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,6 +180,7 @@
         private System.Windows.Forms.Button buttonCircle;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.CheckBox checkBoxFilled;
+        private System.Windows.Forms.Label labelStatus;
     }
 }
 

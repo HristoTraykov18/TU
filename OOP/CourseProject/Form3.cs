@@ -90,7 +90,7 @@ namespace CourseProject
                     labelAlert.Text = "CAN NOT DRAW THERE";
                     labelAlert.Show();
                 }
-                else if ((X_Start + Width < 791) && (Y_Start + Height < 591))
+                else if ((X_Start + Width < 500) && (Y_Start + Height < 500))
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();

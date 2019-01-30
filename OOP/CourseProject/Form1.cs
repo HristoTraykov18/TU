@@ -25,22 +25,38 @@ namespace CourseProject
             this.CenterToScreen();
             renderer = new FormsRenderer(this);
             sc = new Scene(renderer);
+            //this.Invalidate();
+            //this.Update();
+        }
+
+        private void buttonCircle_Click(object sender, EventArgs e)
+        {
+            labelStatus.Hide();
+            using (Form3 form3 = new Form3())
+            {
+                if (form3.ShowDialog() == DialogResult.OK)
+                {
+                    width = form3.Width;
+                    height = form3.Height;
+                    xStart = form3.X_Start;
+                    yStart = form3.Y_Start;
+                    sc.DrawFigures(3, xStart, yStart, width, height, filled);
+                }
+            }
         }
 
         private void buttonDraw_Click(object sender, EventArgs e)
         {
             this.Location = new Point(Location.X - 200, Location.Y - 100);
             this.Size = new Size(800, 600);
-
-            checkBoxFilled.Enabled = true;
-            checkBoxFilled.Visible = true;
+            
+            checkBoxFilled.Show();
             checkBoxFilled.Location = new Point(440, 10);
 
             label.Text = "Draw a figure";
             label.Location = new Point(330, 10);
 
-            buttonDraw.Enabled = false;
-            buttonDraw.Visible = false;
+            buttonDraw.Hide();
 
             buttonImport.Size = new Size(120, 40);
             
@@ -50,28 +66,56 @@ namespace CourseProject
             foreach(Button b in secondaryButtons)
             {
                 b.Location = new Point(40 + (i * 140), 40);
-                b.Enabled = true;
-                b.Visible = true;
+                b.Show();
                 i++;
             }
         }
 
         private void buttonImport_Click(object sender, EventArgs e)
         {
-            sc.ImportFigures("figures.bin");
+            labelStatus.Hide();
+            if (buttonDraw.Visible)
+                buttonDraw_Click(sender, e);
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.FileName = "figures.bin";
+                openFileDialog.Filter = "Binary files (*.bin)|*.bin|All files(*.*)|*.*";
+                openFileDialog.DefaultExt = "Binary files (*.bin)|*.bin|All files(*.*)|*.*";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (sc.ImportFigures(openFileDialog.FileName))
+                    {
+                        labelStatus.Text = "Import successful";
+                        labelStatus.ForeColor = Color.Green;
+                        labelStatus.Show();
+                    }
+                    else
+                    {
+                        labelStatus.Text = "Invalid file";
+                        labelStatus.ForeColor = Color.Red;
+                        labelStatus.Show();
+                    }
+                }
+
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (!sc.SaveFigures("figures.bin"))
+            labelStatus.Hide();
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                Form2 form2 = new Form2();
-                form2.ShowDialog();
+                saveFileDialog.FileName = "figures.bin";
+                saveFileDialog.Filter = "Binary files (*.bin)|*.bin|All files(*.*)|*.*";
+                saveFileDialog.DefaultExt = "Binary files (*.bin)|*.bin|All files(*.*)|*.*";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    sc.SaveFigures(saveFileDialog.FileName);
             }
         }
 
         private void buttonTriangle_Click(object sender, EventArgs e)
         {
+            labelStatus.Hide();
             using (Form3 form3 = new Form3())
             {
                 if (form3.ShowDialog() == DialogResult.OK)
@@ -85,8 +129,14 @@ namespace CourseProject
             }
         }
 
+        private void mainForm_Paint(object sender, PaintEventArgs e)
+        {
+            sc.Redraw();
+        }
+
         private void buttonRectangle_Click(object sender, EventArgs e)
         {
+            labelStatus.Hide();
             using (Form3 form3 = new Form3())
             {
                 if (form3.ShowDialog() == DialogResult.OK)
@@ -96,21 +146,6 @@ namespace CourseProject
                     xStart = form3.X_Start;
                     yStart = form3.Y_Start;
                     sc.DrawFigures(2, xStart, yStart, width, height, filled);
-                }
-            }
-        }
-
-        private void buttonLine_Click(object sender, EventArgs e)
-        {
-            using (Form3 form3 = new Form3())
-            {
-                if (form3.ShowDialog() == DialogResult.OK)
-                {
-                    width = form3.Width;
-                    height = form3.Height;
-                    xStart = form3.X_Start;
-                    yStart = form3.Y_Start;
-                    sc.DrawFigures(3, xStart, yStart, width, height, filled);
                 }
             }
         }
@@ -131,9 +166,9 @@ namespace CourseProject
                 case MouseButtons.Right:
                     if (filled)
                     {
-                        ColorDialog ColorPicker = new ColorDialog();
-                        if (ColorPicker.ShowDialog() == DialogResult.OK)
-                            sc.ChangeFigureColor(new Point(e.X, e.Y), ColorPicker.Color, true);
+                        using (ColorDialog ColorPicker = new ColorDialog())
+                            if (ColorPicker.ShowDialog() == DialogResult.OK)
+                                sc.ChangeFigureColor(new Point(e.X, e.Y), ColorPicker.Color, true);
                     }
                     else
                         sc.ChangeFigureColor(new Point(e.X, e.Y), this.BackColor, false);

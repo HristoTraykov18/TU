@@ -5,7 +5,8 @@ using System.Drawing;
 
 namespace ProjectLibrary
 {
-    public class Circle : BaseFigure
+    [Serializable]
+    public class Ellipse : BaseFigure
     {
         public Point Position { get; set; }
         public int width { get; set; }
@@ -14,7 +15,7 @@ namespace ProjectLibrary
         public Color color { get; set; }
         public bool filled { get; set; }
 
-        public Circle(Point p, int w, int h, int i, Color c, bool fill)
+        public Ellipse(Point p, int w, int h, int i, Color c, bool fill)
         {
             Position = p;
             width = w;
@@ -30,10 +31,16 @@ namespace ProjectLibrary
 
         public override void Draw(IRenderer ir)
         {
-            ir.DrawCircle(Position.X, Position.Y, width, height, index, color, filled);
+            ir.DrawEllipse(Position.X, Position.Y, width, height, index, color, filled);
         }
 
         public override void Fill() { filled = true; }
+
+        public override bool IsClicked(Point mPosition)
+        {
+            return (mPosition.X >= Position.X && mPosition.X <= Position.X + width &&
+                    mPosition.Y >= Position.Y && mPosition.Y <= Position.Y + height);
+        }
 
         public override void Rotate(IRenderer ir)
         {
@@ -41,7 +48,15 @@ namespace ProjectLibrary
             height = width;
             width = temp;
 
-            ir.DrawCircle(Position.X, Position.Y, width, height, index, color, filled);
+            if (IsNotInBounds(Position.X, Position.Y, width, height))
+            {
+                if (Position.X + width >= 800)
+                    Position = new Point(750 - Math.Abs(width), Position.Y);
+                if (Position.Y + height >= 600)
+                    Position = new Point(Position.X, 500 - Math.Abs(height));
+            }
+
+            ir.DrawEllipse(Position.X, Position.Y, width, height, index, color, filled);
         }
     }
 }

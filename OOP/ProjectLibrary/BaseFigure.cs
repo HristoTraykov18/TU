@@ -52,6 +52,12 @@ namespace ProjectLibrary
                     mPosition.Y >= Position.Y && mPosition.Y <= Position.Y + height);
         }
 
+        public virtual bool IsNotInBounds(int xStart, int yStart, int width, int height)
+        {
+            return xStart + width > 800 || xStart + width < 0 || 
+                   yStart + height > 600 || yStart + height < 90;
+        }
+
         public virtual void Rotate(IRenderer ir)
         {
             // Rotate the clicked figure 90 degrees

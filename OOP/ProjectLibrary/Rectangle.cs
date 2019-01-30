@@ -1,7 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace ProjectLibrary
 {
+    [Serializable]
     public class Rectangle : BaseFigure
     {
         public Point Position { get; set; }
@@ -32,11 +34,25 @@ namespace ProjectLibrary
 
         public override void Fill() { filled = true; }
 
+        public override bool IsClicked(Point mPosition)
+        {
+            return (mPosition.X >= Position.X && mPosition.X <= Position.X + width &&
+                    mPosition.Y >= Position.Y && mPosition.Y <= Position.Y + height);
+        }
+
         public override void Rotate(IRenderer ir)
         {
             int temp = height;
             height = width;
             width = temp;
+
+            if (IsNotInBounds(Position.X, Position.Y, width, height))
+            {
+                if (Position.X + width >= 800)
+                    Position = new Point(750 - Math.Abs(width), Position.Y);
+                if (Position.Y + height >= 600)
+                    Position = new Point(Position.X, 500 - Math.Abs(height));
+            }
 
             ir.DrawRectangle(Position.X, Position.Y, width, height, index, color, filled);
         }

@@ -3,6 +3,7 @@ using System.Drawing;
 
 namespace ProjectLibrary
 {
+    [Serializable]
     public class Triangle : BaseFigure
     {
         public Point Position { get; set; }
@@ -54,8 +55,16 @@ namespace ProjectLibrary
             {
                 Position = new Point(Position.X + width, Position.Y);
                 int temp = height;
-                height  = width;
+                height = width;
                 width = -temp;
+                if (IsNotInBounds(Position.X, Position.Y, width, height))
+                {
+                    if (Position.X + width >= 800)
+                        Position = new Point(750 - Math.Abs(width), Position.Y);
+
+                    else if (Position.X + width < 0)
+                        Position = new Point(Position.X + Math.Abs(Position.X + width), Position.Y);
+                }
             }
             else if ((width < 0 && height > 0) || (width > 0 && height < 0))
             {
@@ -63,6 +72,14 @@ namespace ProjectLibrary
                 int temp = width;
                 width = -height;
                 height = temp;
+                if (IsNotInBounds(Position.X, Position.Y, width, height))
+                {
+                    if (Position.Y + height >= 600)
+                        Position = new Point(Position.X, 500 - Math.Abs(height));
+
+                    else if (Position.Y + height < 90)
+                        Position = new Point(Position.X, Position.Y + Math.Abs(Position.Y + height) + 90);
+                }
             }
 
             ir.DrawTriangle(Position.X, Position.Y, width, height, index, color, filled);

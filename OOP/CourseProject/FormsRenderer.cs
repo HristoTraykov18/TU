@@ -16,14 +16,14 @@ namespace CourseProject
                 g.Clear(c);
         }
 
-        public void DrawCircle(int xStart, int yStart, int width, int height, int index, Color c, bool filled)
+        public void DrawEllipse(int xStart, int yStart, int width, int height, int index, Color c, bool filled)
         {
             Graphics g = form.CreateGraphics();
             if (filled)
             {
                 using (SolidBrush sBr = new SolidBrush(c))
                 {
-                    g.FillEllipse(sBr, new System.Drawing.Rectangle(xStart, yStart, width, height));
+                    g.FillEllipse(sBr, new System.Drawing.Rectangle(xStart - 3, yStart - 3, width + 3, height + 3));
                     sBr.Dispose();
                 }
             }
@@ -42,6 +42,7 @@ namespace CourseProject
                 g.DrawLine(p, xStart, yStart, xEnd, yEnd);
             g.Dispose();
         }
+
         public void DrawTriangle(int xStart, int yStart, int width, int height, int index, Color c, bool filled)
         {
             if (filled)
@@ -49,8 +50,8 @@ namespace CourseProject
                 Graphics g = form.CreateGraphics();
                 using (SolidBrush sBr = new SolidBrush(c))
                 {
-                    Point[] figurePoints = { new Point(xStart, yStart), new Point(xStart + width, yStart),
-                                             new Point(xStart, yStart + height) };
+                    Point[] figurePoints = { new Point(xStart - 3, yStart - 3), new Point(xStart + width + 3, yStart),
+                                             new Point(xStart, yStart + height + 3) };
                     g.FillPolygon(sBr, figurePoints);
                     sBr.Dispose();
                 }
@@ -65,6 +66,7 @@ namespace CourseProject
                 DrawLine((xStart + width), yStart, xStart, (yStart + height), c);
             }
         }
+
         public void DrawRectangle(int xStart, int yStart, int width, int height, int index, Color c, bool filled)
         {
             Graphics g = form.CreateGraphics();
@@ -72,7 +74,7 @@ namespace CourseProject
             {
                 using (SolidBrush sBr = new SolidBrush(c))
                 {
-                    g.FillRectangle(sBr, xStart, yStart, width, height);
+                    g.FillRectangle(sBr, xStart - 3, yStart - 3, width + 3, height + 3);
                     sBr.Dispose();
                 }
             }
