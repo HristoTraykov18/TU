@@ -1,0 +1,14 @@
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\bin\Debug\CourseProject.exe.config
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\bin\Debug\CourseProject.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\bin\Debug\CourseProject.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\bin\Debug\ProjectLibrary.dll
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\bin\Debug\ProjectLibrary.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.csprojAssemblyReference.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.mainForm.resources
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.Form3.resources
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.Properties.Resources.resources
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.csproj.GenerateResource.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.csproj.CoreCompileInputs.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.csproj.CopyComplete
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\CourseProject\obj\Debug\CourseProject.pdb

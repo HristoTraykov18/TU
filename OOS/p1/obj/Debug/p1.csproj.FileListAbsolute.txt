@@ -1,0 +1,17 @@
+S:\Documents\VisualStudio\source\repos\OOS\p1\bin\Debug\p1.exe.config
+S:\Documents\VisualStudio\source\repos\OOS\p1\bin\Debug\p1.exe
+S:\Documents\VisualStudio\source\repos\OOS\p1\bin\Debug\p1.pdb
+S:\Documents\VisualStudio\source\repos\OOS\p1\obj\Debug\p1.csprojAssemblyReference.cache
+S:\Documents\VisualStudio\source\repos\OOS\p1\obj\Debug\p1.csproj.CoreCompileInputs.cache
+S:\Documents\VisualStudio\source\repos\OOS\p1\obj\Debug\p1.exe
+S:\Documents\VisualStudio\source\repos\OOS\p1\obj\Debug\p1.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\bin\Debug\p1.exe.config
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\bin\Debug\p1.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\bin\Debug\p1.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\obj\Debug\p1.csprojAssemblyReference.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\obj\Debug\p1.csproj.CoreCompileInputs.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\obj\Debug\p1.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\obj\Debug\p1.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\bin\Debug\d1.dll
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\bin\Debug\d1.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p1\obj\Debug\p1.csproj.CopyComplete

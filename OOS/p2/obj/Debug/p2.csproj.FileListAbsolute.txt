@@ -1,0 +1,20 @@
+S:\Documents\VisualStudio\source\repos\OOS\p2\bin\Debug\p2.exe.config
+S:\Documents\VisualStudio\source\repos\OOS\p2\bin\Debug\p2.exe
+S:\Documents\VisualStudio\source\repos\OOS\p2\bin\Debug\p2.pdb
+S:\Documents\VisualStudio\source\repos\OOS\p2\obj\Debug\p2.csprojAssemblyReference.cache
+S:\Documents\VisualStudio\source\repos\OOS\p2\obj\Debug\p2.Form1.resources
+S:\Documents\VisualStudio\source\repos\OOS\p2\obj\Debug\p2.Properties.Resources.resources
+S:\Documents\VisualStudio\source\repos\OOS\p2\obj\Debug\p2.csproj.GenerateResource.cache
+S:\Documents\VisualStudio\source\repos\OOS\p2\obj\Debug\p2.csproj.CoreCompileInputs.cache
+S:\Documents\VisualStudio\source\repos\OOS\p2\obj\Debug\p2.exe
+S:\Documents\VisualStudio\source\repos\OOS\p2\obj\Debug\p2.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\bin\Debug\p2.exe.config
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\bin\Debug\p2.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\bin\Debug\p2.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\obj\Debug\p2.csprojAssemblyReference.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\obj\Debug\p2.Form1.resources
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\obj\Debug\p2.Properties.Resources.resources
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\obj\Debug\p2.csproj.GenerateResource.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\obj\Debug\p2.csproj.CoreCompileInputs.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\obj\Debug\p2.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\p2\obj\Debug\p2.pdb

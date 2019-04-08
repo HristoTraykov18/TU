@@ -1,0 +1,6 @@
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\d1\bin\Debug\d1.dll
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\d1\bin\Debug\d1.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\d1\obj\Debug\d1.csprojAssemblyReference.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\d1\obj\Debug\d1.csproj.CoreCompileInputs.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\d1\obj\Debug\d1.dll
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\d1\obj\Debug\d1.pdb

@@ -1,0 +1,9 @@
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\bin\Debug\netstandard2.0\ProjectLibrary.deps.json
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\bin\Debug\netstandard2.0\ProjectLibrary.dll
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\bin\Debug\netstandard2.0\ProjectLibrary.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.csprojAssemblyReference.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.csproj.CoreCompileInputs.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.AssemblyInfoInputs.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.AssemblyInfo.cs
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.dll
+S:\Documents\Visual Studio 2017\source\repos\TU\OOP\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.pdb
