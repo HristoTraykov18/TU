@@ -78,7 +78,7 @@ namespace d1
             Console.WriteLine("p1.exe options:");
             Console.WriteLine("\t-h\t\t\tShow this dialog");
             Console.WriteLine("\t-g [filename]\t\tGenerate file with random numbers (filename optional)");
-            Console.WriteLine("\t-s [filename] [A/d] [new filename] Sort the numbers in ascending or descending order");
+            Console.WriteLine("\t-s [filename] [new filename] [A/d] Sort the numbers in ascending or descending order");
             Console.WriteLine("\t-v [filename]\t\tView file content");
             Console.WriteLine("\t-d [filename]\t\tDelete a file");
         }
@@ -91,6 +91,7 @@ namespace d1
                 int[] numbers = new int[numbersAsStrings.Length];
                 for (int i = 0; i < numbers.Length; i++)
                     numbers[i] = int.Parse(numbersAsStrings[i]);
+                string orderType = "";
                 if (sortType == "a")
                 {
                     for (int i = 1; i < numbers.Length; i++)
@@ -108,6 +109,7 @@ namespace d1
                             }
                         }
                     }
+                    orderType = "ascending";
                 }
                 else
                 {
@@ -126,6 +128,7 @@ namespace d1
                             }
                         }
                     }
+                    orderType = "descending";
                 }
                 string input = "y";
                 if (File.Exists(newFilename))
@@ -135,13 +138,8 @@ namespace d1
                 }
                 else
                 {
-                    if (newFilename == "")
+                    if (newFilename == "" || !newFilename.EndsWith(".txt"))
                         newFilename = filename;
-                    if (!newFilename.EndsWith(".txt"))
-                    {
-                        Console.WriteLine("Invalid filename. Only .txt files are allowed");
-                        newFilename = "sortedFile.txt";
-                    }
                     using (FileStream fs = File.Open(newFilename, FileMode.CreateNew)) { }
                 }
 
@@ -158,7 +156,7 @@ namespace d1
                             fs.Write(newline, 0, newline.Length);
                         }
                     }
-                    Console.WriteLine($"Sorted numbers in {newFilename}.");
+                    Console.WriteLine($"Sorted numbers in {newFilename} in {orderType} order.");
                     if (newFilename != filename)
                     {
                         Console.Write($"Delete {filename}? [Y/n]: ");

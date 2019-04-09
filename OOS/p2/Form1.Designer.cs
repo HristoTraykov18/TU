@@ -39,6 +39,8 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.orderTypeBox = new System.Windows.Forms.ComboBox();
+            this.orderTypeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCreate
@@ -51,7 +53,6 @@
             this.buttonCreate.Text = "Create New File";
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            this.buttonCreate.Click += new System.EventHandler(this.Common_MouseClick);
             // 
             // buttonSort
             // 
@@ -74,7 +75,6 @@
             this.buttonView.Text = "View File Content";
             this.buttonView.UseVisualStyleBackColor = true;
             this.buttonView.Click += new System.EventHandler(this.buttonView_Click);
-            this.buttonView.Click += new System.EventHandler(this.Common_MouseClick);
             // 
             // buttonDelete
             // 
@@ -86,12 +86,11 @@
             this.buttonDelete.Text = "Delete File";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            this.buttonDelete.Click += new System.EventHandler(this.Common_MouseClick);
             // 
             // filenameBox
             // 
             this.filenameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.filenameBox.Location = new System.Drawing.Point(342, 78);
+            this.filenameBox.Location = new System.Drawing.Point(280, 78);
             this.filenameBox.Name = "filenameBox";
             this.filenameBox.Size = new System.Drawing.Size(216, 26);
             this.filenameBox.TabIndex = 4;
@@ -101,7 +100,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(407, 55);
+            this.label1.Location = new System.Drawing.Point(345, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 5;
@@ -111,7 +110,7 @@
             // newFilenameBox
             // 
             this.newFilenameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.newFilenameBox.Location = new System.Drawing.Point(342, 149);
+            this.newFilenameBox.Location = new System.Drawing.Point(280, 149);
             this.newFilenameBox.Name = "newFilenameBox";
             this.newFilenameBox.Size = new System.Drawing.Size(216, 26);
             this.newFilenameBox.TabIndex = 6;
@@ -121,7 +120,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(353, 126);
+            this.label2.Location = new System.Drawing.Point(290, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 20);
             this.label2.TabIndex = 7;
@@ -130,19 +129,20 @@
             // 
             // statusLabel
             // 
-            this.statusLabel.AutoSize = true;
+            this.statusLabel.AutoEllipsis = true;
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.statusLabel.Location = new System.Drawing.Point(278, 286);
+            this.statusLabel.Location = new System.Drawing.Point(278, 242);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(57, 20);
+            this.statusLabel.Size = new System.Drawing.Size(357, 141);
             this.statusLabel.TabIndex = 8;
             this.statusLabel.Text = "Status";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.statusLabel.Visible = false;
             // 
             // buttonConfirm
             // 
             this.buttonConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonConfirm.Location = new System.Drawing.Point(342, 204);
+            this.buttonConfirm.Location = new System.Drawing.Point(280, 204);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(96, 35);
             this.buttonConfirm.TabIndex = 9;
@@ -154,7 +154,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonCancel.Location = new System.Drawing.Point(462, 204);
+            this.buttonCancel.Location = new System.Drawing.Point(400, 204);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(96, 35);
             this.buttonCancel.TabIndex = 10;
@@ -163,11 +163,38 @@
             this.buttonCancel.Visible = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // orderTypeBox
+            // 
+            this.orderTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.orderTypeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderTypeBox.FormattingEnabled = true;
+            this.orderTypeBox.Items.AddRange(new object[] {
+            "Ascending",
+            "Descending"});
+            this.orderTypeBox.Location = new System.Drawing.Point(514, 149);
+            this.orderTypeBox.Name = "orderTypeBox";
+            this.orderTypeBox.Size = new System.Drawing.Size(121, 26);
+            this.orderTypeBox.TabIndex = 11;
+            this.orderTypeBox.Visible = false;
+            // 
+            // orderTypeLabel
+            // 
+            this.orderTypeLabel.AutoSize = true;
+            this.orderTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.orderTypeLabel.Location = new System.Drawing.Point(538, 126);
+            this.orderTypeLabel.Name = "orderTypeLabel";
+            this.orderTypeLabel.Size = new System.Drawing.Size(74, 20);
+            this.orderTypeLabel.TabIndex = 12;
+            this.orderTypeLabel.Text = "Order by";
+            this.orderTypeLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 358);
+            this.ClientSize = new System.Drawing.Size(671, 385);
+            this.Controls.Add(this.orderTypeLabel);
+            this.Controls.Add(this.orderTypeBox);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonConfirm);
             this.Controls.Add(this.statusLabel);
@@ -181,6 +208,7 @@
             this.Controls.Add(this.buttonCreate);
             this.Name = "Form1";
             this.Text = "p2";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +227,8 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Button buttonConfirm;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ComboBox orderTypeBox;
+        private System.Windows.Forms.Label orderTypeLabel;
     }
 }
 
