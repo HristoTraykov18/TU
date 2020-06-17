@@ -12,7 +12,7 @@ using d1;
 
 namespace p1
 {
-    class Program
+    class p1
     {
         static void Main(string[] args)
         {

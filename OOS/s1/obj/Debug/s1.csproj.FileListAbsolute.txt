@@ -1,0 +1,10 @@
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe.config
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\obj\Debug\s1.csprojAssemblyReference.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\obj\Debug\s1.s1.resources
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\obj\Debug\s1.csproj.GenerateResource.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\obj\Debug\s1.csproj.CoreCompileInputs.cache
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\obj\Debug\s1.exe
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\obj\Debug\s1.pdb
+S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\obj\Debug\s1.ProjectInstaller.resources

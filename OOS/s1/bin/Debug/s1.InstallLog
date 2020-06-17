@@ -1,0 +1,39 @@
+﻿Installing assembly 'S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.InstallLog
+   assemblypath = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe
+Installing service s1...
+Creating EventLog source s1 in log Application...
+Rolling back assembly 'S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.InstallLog
+   assemblypath = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe
+Restoring event log to previous state for source s1.
+Installing assembly 'S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.InstallLog
+   assemblypath = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe
+Installing service s1...
+Creating EventLog source s1 in log Application...
+Rolling back assembly 'S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.InstallLog
+   assemblypath = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe
+Restoring event log to previous state for source s1.
+Installing assembly 'S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.InstallLog
+   assemblypath = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe
+Installing service s1...
+Creating EventLog source s1 in log Application...
+Rolling back assembly 'S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.InstallLog
+   assemblypath = S:\Documents\Visual Studio 2017\source\repos\TU\OOS\s1\bin\Debug\s1.exe
+Restoring event log to previous state for source s1.

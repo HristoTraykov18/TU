@@ -1,3 +1,3 @@
 # TU
 
-University exercises
+Technical university course projects
