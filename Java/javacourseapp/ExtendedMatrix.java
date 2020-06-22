@@ -3,64 +3,75 @@ package javacourseapp;
 
 // Class extending the base class's functionality
 public class ExtendedMatrix extends Matrix {
-    public ExtendedMatrix() {
-        super();
-    }
-    
-    public ExtendedMatrix(int rows, int columns) {
-        super(rows, columns);
+    public ExtendedMatrix(Matrix baseMatrix) {
+        matrixRows = baseMatrix.getRows();
+        matrixColumns = baseMatrix.getColumns();
+        matrix = new double[matrixRows][matrixColumns];
+        matrix = baseMatrix.getMatrix();
     }
     
     // Multiplication of a matrix with decimal number
     public ExtendedMatrix multiplyNumber(double multiplier) {
-        ExtendedMatrix resultMatrix = new ExtendedMatrix();
-        
         for (int i = 0; i < matrixRows; i++) {
             for (int j = 0; j < matrixColumns; j++)
-                resultMatrix.matrix[i][j] = matrix[i][j] * multiplier;
+                matrix[i][j] *= multiplier;
         }
         
-        return resultMatrix;
+        return this;
     }
     
     // Multiplication of two matrices
-    public ExtendedMatrix multiplyMatrix(ExtendedMatrix multiplicationMatrix) {
-        ExtendedMatrix resultMatrix = new ExtendedMatrix();
+    public ExtendedMatrix multiplyMatrix(Matrix multiplicationMatrix) {
+        int columns = multiplicationMatrix.getColumns();
+        double[][] tempMatrix = new double[matrixRows][columns];
+        double[][] multiplierMatrix = multiplicationMatrix.getMatrix();
         
         for (int i = 0; i < matrixRows; i++) {
-            for (int j = 0; j < matrixColumns; j++) {
-                
+            for (int j = 0; j < columns; j++) {
+                for (int k = 0; k < matrixColumns; k++)
+                    tempMatrix[i][j] += matrix[i][k] * multiplierMatrix[k][j];
             }
         }
         
-        return resultMatrix;
+        matrixColumns = columns;
+        matrix = tempMatrix;
+        
+        return this;
     }
     
-    public ExtendedMatrix divideMatrix(double[][] divisionMatrix) {
-        ExtendedMatrix resultMatrix = new ExtendedMatrix();
-        // Inverted multiplication, implement invert() in Matrix
-        return resultMatrix;
+    // Division of two matrices
+    public ExtendedMatrix divideMatrix(Matrix divisionMatrix) {
+        // Use temporary matrix in order to keep the original
+        ExtendedMatrix inversedMatrix = new ExtendedMatrix(divisionMatrix);
+        inversedMatrix = inversedMatrix.inverseMatrix();
+        
+        return multiplyMatrix(inversedMatrix);
     }
     
+    // Addition of two matrices
     public ExtendedMatrix addMatrix(double[][] additionMatrix) {
-        ExtendedMatrix resultMatrix = new ExtendedMatrix(matrixRows, matrixColumns);
-        
         for (int i = 0; i < matrixRows; i++) {
             for (int j = 0; j < matrixColumns; j++)
-                resultMatrix.matrix[i][j] = matrix[i][j] + additionMatrix[i][j];
+                matrix[i][j] += additionMatrix[i][j];
         }
         
-        return resultMatrix;
+        return this;
     }
     
+    // Subtraction of two matrices
     public ExtendedMatrix subtractMatrix(double[][] subtractionMatrix) {
-        ExtendedMatrix resultMatrix = new ExtendedMatrix(matrixRows, matrixColumns);
-        
         for (int i = 0; i < matrixRows; i++) {
             for (int j = 0; j < matrixColumns; j++)
-                resultMatrix.matrix[i][j] = matrix[i][j] - subtractionMatrix[i][j];
+                matrix[i][j] -= subtractionMatrix[i][j];
         }
         
-        return resultMatrix;
+        return this;
+    }
+    
+    private ExtendedMatrix inverseMatrix() {
+        IdentityMatrix identityMatrix = 
+            new IdentityMatrix(getRows());
+        
+        return multiplyMatrix(identityMatrix);
     }
 }

@@ -2,6 +2,7 @@
 package CourseAppGUI;
 import javacourseapp.Matrix;
 import javacourseapp.ExtendedMatrix;
+import javax.swing.JTextArea;
 
 public class Main extends javax.swing.JFrame {
     Matrix matrixOne = null; // Matrix A
@@ -22,8 +23,8 @@ public class Main extends javax.swing.JFrame {
         matrixOneContainer = new javax.swing.JTextArea();
         matrixTwoContainerScrollPane = new javax.swing.JScrollPane();
         matrixTwoContainer = new javax.swing.JTextArea();
-        buttonGetFirstDeterminant = new javax.swing.JButton();
-        buttonGetSecondDeterminant = new javax.swing.JButton();
+        buttonGetDeterminantMatrixOne = new javax.swing.JButton();
+        buttonGetDeterminantMatrixTwo = new javax.swing.JButton();
         buttonReverseRowsMatrixOne = new javax.swing.JButton();
         buttonReverseRowsMatrixTwo = new javax.swing.JButton();
         buttonReverseColumnsMatrixOne = new javax.swing.JButton();
@@ -38,11 +39,14 @@ public class Main extends javax.swing.JFrame {
         buttonDivideMatrices = new javax.swing.JButton();
         buttonSubtractMatrices = new javax.swing.JButton();
         buttonAddMatrices = new javax.swing.JButton();
+        buttonTransposeMatrixOne = new javax.swing.JButton();
+        buttonTransposeMatrixTwo = new javax.swing.JButton();
+        buttonSumMatrixOne = new javax.swing.JButton();
+        buttonSumMatrixTwo = new javax.swing.JButton();
 
         rowsAndColsSet.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         rowsAndColsSet.setTitle("Matrix row and column select");
         rowsAndColsSet.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
-        rowsAndColsSet.setPreferredSize(new java.awt.Dimension(300, 200));
         rowsAndColsSet.setResizable(false);
         rowsAndColsSet.setSize(new java.awt.Dimension(300, 200));
 
@@ -68,7 +72,6 @@ public class Main extends javax.swing.JFrame {
 
         buttonGenerateMatrixOne.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         buttonGenerateMatrixOne.setText("Generate matrix");
-        buttonGenerateMatrixOne.setToolTipText("");
         buttonGenerateMatrixOne.setInheritsPopupMenu(true);
         buttonGenerateMatrixOne.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,7 +81,6 @@ public class Main extends javax.swing.JFrame {
 
         buttonGenerateMatrixTwo.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         buttonGenerateMatrixTwo.setText("Generate matrix");
-        buttonGenerateMatrixTwo.setToolTipText("");
         buttonGenerateMatrixTwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonGenerateMatrixTwo_MouseClick(evt);
@@ -88,7 +90,7 @@ public class Main extends javax.swing.JFrame {
         matrixOneContainer.setEditable(false);
         matrixOneContainer.setBackground(new java.awt.Color(255, 255, 255));
         matrixOneContainer.setColumns(20);
-        matrixOneContainer.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        matrixOneContainer.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         matrixOneContainer.setForeground(new java.awt.Color(0, 0, 0));
         matrixOneContainer.setRows(5);
         matrixOneContainer.setTabSize(4);
@@ -99,12 +101,11 @@ public class Main extends javax.swing.JFrame {
         matrixOneContainerScrollPane.setViewportView(matrixOneContainer);
         matrixOneContainer.getAccessibleContext().setAccessibleName("matrixOneContainer");
         matrixOneContainer.getAccessibleContext().setAccessibleDescription("");
-        matrixOneContainer.getAccessibleContext().setAccessibleParent(null);
 
         matrixTwoContainer.setEditable(false);
         matrixTwoContainer.setBackground(new java.awt.Color(255, 255, 255));
         matrixTwoContainer.setColumns(20);
-        matrixTwoContainer.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        matrixTwoContainer.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         matrixTwoContainer.setForeground(new java.awt.Color(0, 0, 0));
         matrixTwoContainer.setRows(5);
         matrixTwoContainer.setTabSize(4);
@@ -114,19 +115,19 @@ public class Main extends javax.swing.JFrame {
         matrixTwoContainer.setRequestFocusEnabled(false);
         matrixTwoContainerScrollPane.setViewportView(matrixTwoContainer);
 
-        buttonGetFirstDeterminant.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
-        buttonGetFirstDeterminant.setText("Get determinant");
-        buttonGetFirstDeterminant.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttonGetDeterminantMatrixOne.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        buttonGetDeterminantMatrixOne.setText("Get determinant");
+        buttonGetDeterminantMatrixOne.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonGetFirstDeterminant_MouseClick(evt);
+                buttonGetDeterminantMatrixOne_MouseClick(evt);
             }
         });
 
-        buttonGetSecondDeterminant.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
-        buttonGetSecondDeterminant.setText("Get determinant");
-        buttonGetSecondDeterminant.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttonGetDeterminantMatrixTwo.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        buttonGetDeterminantMatrixTwo.setText("Get determinant");
+        buttonGetDeterminantMatrixTwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonGetSecondDeterminant_MouseClick(evt);
+                buttonGetDeterminantMatrixTwo_MouseClick(evt);
             }
         });
 
@@ -174,35 +175,48 @@ public class Main extends javax.swing.JFrame {
         resultArea.setRequestFocusEnabled(false);
         resultScrollPane.setViewportView(resultArea);
 
-        sliderMatrixOneRows.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        sliderMatrixOneRows.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        sliderMatrixOneRows.setForeground(new java.awt.Color(0, 0, 0));
+        sliderMatrixOneRows.setMajorTickSpacing(1);
         sliderMatrixOneRows.setMaximum(10);
-        sliderMatrixOneRows.setMinimum(2);
+        sliderMatrixOneRows.setMinimum(1);
+        sliderMatrixOneRows.setPaintLabels(true);
         sliderMatrixOneRows.setSnapToTicks(true);
         sliderMatrixOneRows.setToolTipText("Matrix A rows");
         sliderMatrixOneRows.setValue(3);
 
+        sliderMatrixOneColumns.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        sliderMatrixOneColumns.setForeground(new java.awt.Color(0, 0, 0));
+        sliderMatrixOneColumns.setMajorTickSpacing(1);
         sliderMatrixOneColumns.setMaximum(10);
-        sliderMatrixOneColumns.setMinimum(2);
+        sliderMatrixOneColumns.setMinimum(1);
+        sliderMatrixOneColumns.setPaintLabels(true);
         sliderMatrixOneColumns.setSnapToTicks(true);
         sliderMatrixOneColumns.setToolTipText("Matrix A columns");
         sliderMatrixOneColumns.setValue(3);
 
+        sliderMatrixTwoRows.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        sliderMatrixTwoRows.setForeground(new java.awt.Color(0, 0, 0));
+        sliderMatrixTwoRows.setMajorTickSpacing(1);
         sliderMatrixTwoRows.setMaximum(10);
-        sliderMatrixTwoRows.setMinimum(2);
+        sliderMatrixTwoRows.setMinimum(1);
+        sliderMatrixTwoRows.setPaintLabels(true);
         sliderMatrixTwoRows.setSnapToTicks(true);
         sliderMatrixTwoRows.setToolTipText("Matrix B rows");
         sliderMatrixTwoRows.setValue(3);
 
+        sliderMatrixTwoColumns.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        sliderMatrixTwoColumns.setForeground(new java.awt.Color(0, 0, 0));
+        sliderMatrixTwoColumns.setMajorTickSpacing(1);
         sliderMatrixTwoColumns.setMaximum(10);
-        sliderMatrixTwoColumns.setMinimum(2);
+        sliderMatrixTwoColumns.setMinimum(1);
+        sliderMatrixTwoColumns.setPaintLabels(true);
         sliderMatrixTwoColumns.setSnapToTicks(true);
         sliderMatrixTwoColumns.setToolTipText("Matrix B columns");
         sliderMatrixTwoColumns.setValue(3);
 
         buttonMultiplyMatrices.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         buttonMultiplyMatrices.setText("Multiply");
-        buttonMultiplyMatrices.setToolTipText("");
-        buttonMultiplyMatrices.setEnabled(false);
         buttonMultiplyMatrices.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonMultiplyMatrices_MouseClick(evt);
@@ -211,7 +225,6 @@ public class Main extends javax.swing.JFrame {
 
         buttonDivideMatrices.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         buttonDivideMatrices.setText("Divide");
-        buttonDivideMatrices.setEnabled(false);
         buttonDivideMatrices.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonDivideMatrices_MouseClick(evt);
@@ -221,7 +234,6 @@ public class Main extends javax.swing.JFrame {
         buttonSubtractMatrices.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         buttonSubtractMatrices.setText("Subtract");
         buttonSubtractMatrices.setToolTipText("");
-        buttonSubtractMatrices.setEnabled(false);
         buttonSubtractMatrices.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonSubtractMatrices_MouseClick(evt);
@@ -230,10 +242,43 @@ public class Main extends javax.swing.JFrame {
 
         buttonAddMatrices.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
         buttonAddMatrices.setText("Add");
-        buttonAddMatrices.setEnabled(false);
         buttonAddMatrices.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonAddMatrices_MouseClick(evt);
+            }
+        });
+
+        buttonTransposeMatrixOne.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        buttonTransposeMatrixOne.setText("Transpose");
+        buttonTransposeMatrixOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonTransposeMatrixOne_MouseClick(evt);
+            }
+        });
+
+        buttonTransposeMatrixTwo.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        buttonTransposeMatrixTwo.setText("Transpose");
+        buttonTransposeMatrixTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonTransposeMatrixTwo_MouseClick(evt);
+            }
+        });
+
+        buttonSumMatrixOne.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        buttonSumMatrixOne.setText("Sum numbers");
+        buttonSumMatrixOne.setToolTipText("Sums all numbers in matrix A");
+        buttonSumMatrixOne.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonSumMatrixOne_MouseClick(evt);
+            }
+        });
+
+        buttonSumMatrixTwo.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        buttonSumMatrixTwo.setText("Sum numbers");
+        buttonSumMatrixTwo.setToolTipText("Sums all numbers in matrix B");
+        buttonSumMatrixTwo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonSumMatrixTwo_MouseClick(evt);
             }
         });
 
@@ -252,34 +297,42 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(buttonDivideMatrices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonSubtractMatrices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonAddMatrices, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                         .addComponent(matrixTwoContainerScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonGetFirstDeterminant)
-                            .addComponent(buttonReverseRowsMatrixOne)
-                            .addComponent(buttonGenerateMatrixOne)
-                            .addComponent(buttonReverseColumnsMatrixOne)
-                            .addComponent(sliderMatrixOneRows, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sliderMatrixOneColumns, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(resultScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonGetSecondDeterminant, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(sliderMatrixTwoRows, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(sliderMatrixTwoColumns, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(buttonReverseRowsMatrixTwo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonReverseColumnsMatrixTwo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonGenerateMatrixTwo, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(buttonGetDeterminantMatrixOne)
+                                    .addComponent(buttonReverseRowsMatrixOne)
+                                    .addComponent(buttonGenerateMatrixOne)
+                                    .addComponent(buttonReverseColumnsMatrixOne)
+                                    .addComponent(sliderMatrixOneRows, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sliderMatrixOneColumns, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonTransposeMatrixOne))
+                                .addGap(18, 18, 18)
+                                .addComponent(resultScrollPane)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(sliderMatrixTwoRows, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(sliderMatrixTwoColumns, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(buttonReverseRowsMatrixTwo)
+                                    .addComponent(buttonGenerateMatrixTwo)
+                                    .addComponent(buttonReverseColumnsMatrixTwo)
+                                    .addComponent(buttonGetDeterminantMatrixTwo)
+                                    .addComponent(buttonTransposeMatrixTwo)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(buttonSumMatrixOne)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonSumMatrixTwo)))
                         .addGap(1, 1, 1)))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(matrixOneContainerScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,33 +352,40 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(buttonGenerateMatrixOne)
                             .addComponent(buttonGenerateMatrixTwo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(sliderMatrixOneRows, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sliderMatrixOneColumns, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonReverseRowsMatrixOne)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                                .addComponent(buttonReverseColumnsMatrixOne))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(sliderMatrixTwoRows, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sliderMatrixTwoColumns, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(sliderMatrixTwoRows, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(sliderMatrixTwoColumns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
                                 .addComponent(buttonReverseRowsMatrixTwo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buttonReverseColumnsMatrixTwo)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonGetFirstDeterminant)
-                            .addComponent(buttonGetSecondDeterminant)))
-                    .addComponent(resultScrollPane))
-                .addGap(40, 40, 40))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonReverseColumnsMatrixTwo))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(sliderMatrixOneRows, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(sliderMatrixOneColumns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(buttonReverseRowsMatrixOne)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonReverseColumnsMatrixOne)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonGetDeterminantMatrixOne)
+                            .addComponent(buttonGetDeterminantMatrixTwo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonTransposeMatrixOne)
+                            .addComponent(buttonTransposeMatrixTwo)))
+                    .addComponent(resultScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonSumMatrixOne)
+                    .addComponent(buttonSumMatrixTwo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         buttonGenerateMatrixTwo.getAccessibleContext().setAccessibleName("buttonGenerateSecondMatrix");
-        buttonGenerateMatrixTwo.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -336,17 +396,7 @@ public class Main extends javax.swing.JFrame {
         int columns = sliderMatrixTwoColumns.getValue();
         matrixTwo = new Matrix(rows, columns);
         
-        String matrixToDisplay = matrixTwo.show();
-        matrixTwoContainer.setText(matrixToDisplay);
-        
-        // Disable determinant button if matrix B has different rows and columns
-        if (rows != columns)
-            buttonGetSecondDeterminant.setEnabled(false);
-        else
-            buttonGetSecondDeterminant.setEnabled(true);
-        
-        if (matrixOne != null)
-            disableMultiMatrixButtons();
+        displayResult(matrixTwo, matrixTwoContainer, matrixTwo.show());
     }//GEN-LAST:event_buttonGenerateMatrixTwo_MouseClick
 
     private void buttonGenerateMatrixOne_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGenerateMatrixOne_MouseClick
@@ -355,124 +405,168 @@ public class Main extends javax.swing.JFrame {
         int columns = sliderMatrixOneColumns.getValue();
         matrixOne = new Matrix(rows, columns);
         
-        String matrixToDisplay = matrixOne.show();
-        matrixOneContainer.setText(matrixToDisplay);
-        
-        // Disable determinant button if matrix A has different rows and columns
-        if (rows != columns)
-            buttonGetFirstDeterminant.setEnabled(false);
-        else
-            buttonGetFirstDeterminant.setEnabled(true);
-        
-        if (matrixTwo != null)
-            disableMultiMatrixButtons();
+        displayResult(matrixOne, matrixOneContainer, matrixOne.show());
     }//GEN-LAST:event_buttonGenerateMatrixOne_MouseClick
 
     private void buttonReverseRowsMatrixOne_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonReverseRowsMatrixOne_MouseClick
-        if (matrixOne == null)
-            matrixOneContainer.setText("Matrix A is not generated");
-        else {
+        if (matrixIsGenerated(matrixOne, matrixOneContainer)) {
             matrixOne.reverseRows();
-            String matrixToDisplay = matrixOne.show();
-            matrixOneContainer.setText(matrixToDisplay);
+            displayResult(matrixOne, matrixOneContainer, matrixOne.show());
         }
     }//GEN-LAST:event_buttonReverseRowsMatrixOne_MouseClick
 
     private void buttonReverseRowsMatrixTwo_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonReverseRowsMatrixTwo_MouseClick
-        if (matrixTwo == null)
-            matrixTwoContainer.setText("Matrix B is not generated");
-        else {
+         if (matrixIsGenerated(matrixTwo, matrixTwoContainer)) {
             matrixTwo.reverseRows();
-            String matrixToDisplay = matrixTwo.show();
-            matrixTwoContainer.setText(matrixToDisplay);
+            displayResult(matrixTwo, matrixTwoContainer, matrixTwo.show());
         }
     }//GEN-LAST:event_buttonReverseRowsMatrixTwo_MouseClick
 
     private void buttonReverseColumnsMatrixOne_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonReverseColumnsMatrixOne_MouseClick
-        if (matrixOne == null)
-            matrixOneContainer.setText("Matrix A is not generated");
-        else {
+        if (matrixIsGenerated(matrixOne, matrixOneContainer)) {
             matrixOne.reverseColumns();
-            String matrixToDisplay = matrixOne.show();
-            matrixOneContainer.setText(matrixToDisplay);
+            displayResult(matrixOne, matrixOneContainer, matrixOne.show());
         }
     }//GEN-LAST:event_buttonReverseColumnsMatrixOne_MouseClick
 
     private void buttonReverseColumnsMatrixTwo_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonReverseColumnsMatrixTwo_MouseClick
-        if (matrixTwo == null)
-            matrixTwoContainer.setText("Matrix B is not generated");
-        else {
+        if (matrixIsGenerated(matrixTwo, matrixTwoContainer)) {
             matrixTwo.reverseColumns();
-            String matrixToDisplay = matrixTwo.show();
-            matrixTwoContainer.setText(matrixToDisplay);
+            displayResult(matrixTwo, matrixTwoContainer, matrixTwo.show());
         }
     }//GEN-LAST:event_buttonReverseColumnsMatrixTwo_MouseClick
 
     private void buttonMultiplyMatrices_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMultiplyMatrices_MouseClick
-        resultArea.setText("Not yet implemented");
+        if (canMultiplyOrDivideMatrices()) {
+            ExtendedMatrix tempMatrix = new ExtendedMatrix(matrixOne);
+            tempMatrix = tempMatrix.multiplyMatrix(matrixTwo);
+
+            displayResult(tempMatrix, resultArea, tempMatrix.show());
+        }
     }//GEN-LAST:event_buttonMultiplyMatrices_MouseClick
 
     private void buttonDivideMatrices_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonDivideMatrices_MouseClick
-        resultArea.setText("Not yet implemented");
+        if (canMultiplyOrDivideMatrices() && isSquareMatrix(matrixTwo)) {
+            ExtendedMatrix tempMatrix = new ExtendedMatrix(matrixOne);
+            tempMatrix = tempMatrix.divideMatrix(matrixTwo);
+
+            displayResult(tempMatrix, resultArea, tempMatrix.show());
+        }
     }//GEN-LAST:event_buttonDivideMatrices_MouseClick
 
-    private void buttonGetFirstDeterminant_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGetFirstDeterminant_MouseClick
-        if (matrixOne == null)
-            matrixOneContainer.setText("Matrix A is not generated");
-        else if (matrixOne.getRows() > 3)
-            matrixOneContainer.setText("Not yet implemented");
-        else {
+    private void buttonGetDeterminantMatrixOne_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGetDeterminantMatrixOne_MouseClick
+        if (matrixIsGenerated(matrixOne, matrixOneContainer) && isSquareMatrix(matrixOne)) {
             resultArea.setText(
                 String.format("Determinant of matrix A is %.2f", matrixOne.getDeterminant()));
         }
-    }//GEN-LAST:event_buttonGetFirstDeterminant_MouseClick
+    }//GEN-LAST:event_buttonGetDeterminantMatrixOne_MouseClick
 
-    private void buttonGetSecondDeterminant_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGetSecondDeterminant_MouseClick
-        if (matrixTwo == null)
-            matrixTwoContainer.setText("Matrix B is not generated");
-        else if (matrixTwo.getRows() > 3)
-            matrixTwoContainer.setText("Not yet implemented");
-        else {
+    private void buttonGetDeterminantMatrixTwo_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGetDeterminantMatrixTwo_MouseClick
+        if (matrixIsGenerated(matrixTwo, matrixTwoContainer) && isSquareMatrix(matrixTwo)) {
             resultArea.setText(
-                String.format("Determinant of matrix B is %.2f", matrixTwo.getDeterminant()));
+                    String.format("Determinant of matrix B is %.2f", matrixTwo.getDeterminant()));
         }
-    }//GEN-LAST:event_buttonGetSecondDeterminant_MouseClick
+    }//GEN-LAST:event_buttonGetDeterminantMatrixTwo_MouseClick
 
     private void buttonSubtractMatrices_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSubtractMatrices_MouseClick
-        ExtendedMatrix tempMatrix = new ExtendedMatrix(matrixOne.getRows(), matrixOne.getColumns());
-        tempMatrix = tempMatrix.subtractMatrix(matrixTwo.getMatrix());
-        
-        String matrixToDisplay = tempMatrix.show();
-        resultArea.setText(matrixToDisplay);
+        if (canSubtractOrAddMatrices()) {
+            ExtendedMatrix tempMatrix = new ExtendedMatrix(matrixOne);
+            tempMatrix.subtractMatrix(matrixTwo.getMatrix());
+
+            displayResult(tempMatrix, resultArea, tempMatrix.show());
+        }
     }//GEN-LAST:event_buttonSubtractMatrices_MouseClick
 
     private void buttonAddMatrices_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAddMatrices_MouseClick
-        ExtendedMatrix tempMatrix = new ExtendedMatrix(matrixOne.getRows(), matrixOne.getColumns());
-        tempMatrix = tempMatrix.addMatrix(matrixTwo.getMatrix());
-        
-        String matrixToDisplay = tempMatrix.show();
-        resultArea.setText(matrixToDisplay);
+        if (canSubtractOrAddMatrices()) {
+            ExtendedMatrix tempMatrix = new ExtendedMatrix(matrixOne);
+            tempMatrix = tempMatrix.addMatrix(matrixTwo.getMatrix());
+
+            displayResult(tempMatrix, resultArea, tempMatrix.show());
+        }
     }//GEN-LAST:event_buttonAddMatrices_MouseClick
-    
-    private void disableMultiMatrixButtons() {
-        if (matrixOne.getRows() != matrixTwo.getColumns()) {
-            buttonMultiplyMatrices.setEnabled(false);
-            buttonDivideMatrices.setEnabled(false);
+
+    private void buttonTransposeMatrixOne_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTransposeMatrixOne_MouseClick
+        if (matrixIsGenerated(matrixOne, matrixOneContainer)) {
+            matrixOne.transposeMatrix();
+            displayResult(matrixOne, matrixOneContainer, matrixOne.show());
         }
-        else {
-            buttonMultiplyMatrices.setEnabled(true);
-            buttonDivideMatrices.setEnabled(true);
+    }//GEN-LAST:event_buttonTransposeMatrixOne_MouseClick
+
+    private void buttonTransposeMatrixTwo_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTransposeMatrixTwo_MouseClick
+        if (matrixIsGenerated(matrixTwo, matrixTwoContainer)) {
+            matrixTwo.transposeMatrix();
+            displayResult(matrixTwo, matrixTwoContainer, matrixTwo.show());
+        }
+    }//GEN-LAST:event_buttonTransposeMatrixTwo_MouseClick
+
+    private void buttonSumMatrixOne_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSumMatrixOne_MouseClick
+        if (matrixIsGenerated(matrixOne, matrixOneContainer)) {
+            String textToDisplay = String.format(
+                "The sum of the elements in matrix A is: %.2f", matrixOne.sumElements());
+            
+            displayResult(matrixOne, resultArea, textToDisplay);
+        }
+    }//GEN-LAST:event_buttonSumMatrixOne_MouseClick
+
+    private void buttonSumMatrixTwo_MouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSumMatrixTwo_MouseClick
+        if (matrixIsGenerated(matrixTwo, matrixTwoContainer)) {
+            String textToDisplay = String.format(
+                "The sum of the elements in matrix B is: %.2f", matrixTwo.sumElements());
+            
+            displayResult(matrixTwo, resultArea, textToDisplay);
+        }
+    }//GEN-LAST:event_buttonSumMatrixTwo_MouseClick
+
+    // Display matrix in the according field
+    private void displayResult(Matrix m, JTextArea displayArea, String text) {
+        displayArea.setText(text);
+    }
+    
+    // Check if the matrix is generated and send message if it's not
+    private boolean matrixIsGenerated(Matrix m, JTextArea displayArea) {
+        if (m == null) {
+            displayArea.setText("The matrix does not exist yet.\n"
+                    + "Please generate it first");
+            
+            return false;
         }
         
-        if (matrixOne.getRows() != matrixTwo.getRows() ||
-                matrixOne.getColumns() != matrixTwo.getColumns()) {
-            buttonSubtractMatrices.setEnabled(false);
-            buttonAddMatrices.setEnabled(false);
+        return true;
+    }
+    
+    private boolean isSquareMatrix(Matrix m) {
+        if (m.getRows()  == m.getColumns())
+            return true;
+        
+        resultArea.setText("Non-square matrix!");
+        
+        return false;
+    }
+    
+    // Buttons subtract and add in the top middle of the screen
+    private boolean canSubtractOrAddMatrices() {
+        if (matrixOne != null && matrixTwo != null &&
+            matrixOne.getRows() == matrixTwo.getRows() &&
+            matrixOne.getColumns() == matrixTwo.getColumns())
+            return true;
+        
+        resultArea.setText("Matrices should have equal rows and columns!\n"
+                + "They may not be square matrices.");
+        
+        return false;
+    }
+    
+    // Buttons subtract and add in the top middle of the screen
+    private boolean canMultiplyOrDivideMatrices() {
+        if (matrixOne != null && matrixTwo != null && 
+            matrixOne.getColumns() == matrixTwo.getRows()) {
+            return true;
         }
-        else {
-            buttonSubtractMatrices.setEnabled(true);
-            buttonAddMatrices.setEnabled(true);
-        }
+        
+        resultArea.setText("Matrix A columns should be equal to matrix B rows!");
+        
+        return false;
     }
     
     public static void main(String args[]) {
@@ -500,10 +594,8 @@ public class Main extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Main().setVisible(true);
         });
     }
 
@@ -512,14 +604,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton buttonDivideMatrices;
     private javax.swing.JButton buttonGenerateMatrixOne;
     private javax.swing.JButton buttonGenerateMatrixTwo;
-    private javax.swing.JButton buttonGetFirstDeterminant;
-    private javax.swing.JButton buttonGetSecondDeterminant;
+    private javax.swing.JButton buttonGetDeterminantMatrixOne;
+    private javax.swing.JButton buttonGetDeterminantMatrixTwo;
     private javax.swing.JButton buttonMultiplyMatrices;
     private javax.swing.JButton buttonReverseColumnsMatrixOne;
     private javax.swing.JButton buttonReverseColumnsMatrixTwo;
     private javax.swing.JButton buttonReverseRowsMatrixOne;
     private javax.swing.JButton buttonReverseRowsMatrixTwo;
     private javax.swing.JButton buttonSubtractMatrices;
+    private javax.swing.JButton buttonSumMatrixOne;
+    private javax.swing.JButton buttonSumMatrixTwo;
+    private javax.swing.JButton buttonTransposeMatrixOne;
+    private javax.swing.JButton buttonTransposeMatrixTwo;
     private javax.swing.JTextArea matrixOneContainer;
     private javax.swing.JScrollPane matrixOneContainerScrollPane;
     private javax.swing.JTextArea matrixTwoContainer;

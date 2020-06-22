@@ -9,9 +9,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Verdana" size="13" style="1"/>
         </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[300, 200]"/>
-        </Property>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[300, 200]"/>
@@ -81,30 +78,41 @@
                           <Component id="buttonSubtractMatrices" max="32767" attributes="0"/>
                           <Component id="buttonAddMatrices" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="70" max="32767" attributes="0"/>
                       <Component id="matrixTwoContainerScrollPane" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="buttonGetFirstDeterminant" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonReverseRowsMatrixOne" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonGenerateMatrixOne" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonReverseColumnsMatrixOne" min="-2" max="-2" attributes="0"/>
-                          <Component id="sliderMatrixOneRows" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="sliderMatrixOneColumns" min="-2" pref="180" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
-                      <Component id="resultScrollPane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="buttonGetSecondDeterminant" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="sliderMatrixTwoRows" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="sliderMatrixTwoColumns" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="buttonGetDeterminantMatrixOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonReverseRowsMatrixOne" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonGenerateMatrixOne" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonReverseColumnsMatrixOne" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sliderMatrixOneRows" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="sliderMatrixOneColumns" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="buttonTransposeMatrixOne" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="resultScrollPane" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="sliderMatrixTwoRows" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="sliderMatrixTwoColumns" min="-2" pref="180" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="buttonReverseRowsMatrixTwo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonGenerateMatrixTwo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonReverseColumnsMatrixTwo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonGetDeterminantMatrixTwo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonTransposeMatrixTwo" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="buttonReverseRowsMatrixTwo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonReverseColumnsMatrixTwo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonGenerateMatrixTwo" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="buttonSumMatrixOne" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="buttonSumMatrixTwo" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   </Group>
@@ -116,7 +124,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="matrixOneContainerScrollPane" min="-2" pref="150" max="-2" attributes="0"/>
@@ -140,35 +148,45 @@
                           <Component id="buttonGenerateMatrixTwo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="sliderMatrixOneRows" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="sliderMatrixOneColumns" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonReverseRowsMatrixOne" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="11" max="32767" attributes="0"/>
-                              <Component id="buttonReverseColumnsMatrixOne" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="sliderMatrixTwoRows" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="sliderMatrixTwoColumns" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="sliderMatrixTwoRows" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="sliderMatrixTwoColumns" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="buttonReverseRowsMatrixTwo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="buttonReverseColumnsMatrixTwo" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="sliderMatrixOneRows" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="sliderMatrixOneColumns" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="buttonReverseRowsMatrixOne" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="buttonReverseColumnsMatrixOne" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="6" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonGetFirstDeterminant" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonGetSecondDeterminant" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="buttonGetDeterminantMatrixOne" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonGetDeterminantMatrixTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="buttonTransposeMatrixOne" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonTransposeMatrixTwo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="resultScrollPane" max="32767" attributes="0"/>
+                  <Component id="resultScrollPane" min="-2" pref="225" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="buttonSumMatrixOne" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonSumMatrixTwo" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -180,7 +198,6 @@
           <Font name="Verdana" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Generate matrix"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="inheritsPopupMenu" type="boolean" value="true"/>
       </Properties>
       <Events>
@@ -193,11 +210,9 @@
           <Font name="Verdana" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Generate matrix"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="buttonGenerateSecondMatrix"/>
-        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
       </AccessibilityProperties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonGenerateMatrixTwo_MouseClick"/>
@@ -218,7 +233,7 @@
             </Property>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="0"/>
+              <Font name="Verdana" size="13" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -237,9 +252,6 @@
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="matrixOneContainer"/>
             <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
-            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="null"/>
-            </Property>
           </AccessibilityProperties>
         </Component>
       </SubComponents>
@@ -259,7 +271,7 @@
             </Property>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="0"/>
+              <Font name="Verdana" size="13" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -278,7 +290,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="buttonGetFirstDeterminant">
+    <Component class="javax.swing.JButton" name="buttonGetDeterminantMatrixOne">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Verdana" size="13" style="1"/>
@@ -286,10 +298,10 @@
         <Property name="text" type="java.lang.String" value="Get determinant"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonGetFirstDeterminant_MouseClick"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonGetDeterminantMatrixOne_MouseClick"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonGetSecondDeterminant">
+    <Component class="javax.swing.JButton" name="buttonGetDeterminantMatrixTwo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Verdana" size="13" style="1"/>
@@ -297,7 +309,7 @@
         <Property name="text" type="java.lang.String" value="Get determinant"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonGetSecondDeterminant_MouseClick"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonGetDeterminantMatrixTwo_MouseClick"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonReverseRowsMatrixOne">
@@ -378,10 +390,15 @@
     <Component class="javax.swing.JSlider" name="sliderMatrixOneRows">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Verdana" size="13" style="1"/>
+          <Font name="Verdana" size="10" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="majorTickSpacing" type="int" value="1"/>
         <Property name="maximum" type="int" value="10"/>
-        <Property name="minimum" type="int" value="2"/>
+        <Property name="minimum" type="int" value="1"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
         <Property name="snapToTicks" type="boolean" value="true"/>
         <Property name="toolTipText" type="java.lang.String" value="Matrix A rows"/>
         <Property name="value" type="int" value="3"/>
@@ -389,8 +406,16 @@
     </Component>
     <Component class="javax.swing.JSlider" name="sliderMatrixOneColumns">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="10" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="majorTickSpacing" type="int" value="1"/>
         <Property name="maximum" type="int" value="10"/>
-        <Property name="minimum" type="int" value="2"/>
+        <Property name="minimum" type="int" value="1"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
         <Property name="snapToTicks" type="boolean" value="true"/>
         <Property name="toolTipText" type="java.lang.String" value="Matrix A columns"/>
         <Property name="value" type="int" value="3"/>
@@ -398,8 +423,16 @@
     </Component>
     <Component class="javax.swing.JSlider" name="sliderMatrixTwoRows">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="10" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="majorTickSpacing" type="int" value="1"/>
         <Property name="maximum" type="int" value="10"/>
-        <Property name="minimum" type="int" value="2"/>
+        <Property name="minimum" type="int" value="1"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
         <Property name="snapToTicks" type="boolean" value="true"/>
         <Property name="toolTipText" type="java.lang.String" value="Matrix B rows"/>
         <Property name="value" type="int" value="3"/>
@@ -407,8 +440,16 @@
     </Component>
     <Component class="javax.swing.JSlider" name="sliderMatrixTwoColumns">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="10" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="majorTickSpacing" type="int" value="1"/>
         <Property name="maximum" type="int" value="10"/>
-        <Property name="minimum" type="int" value="2"/>
+        <Property name="minimum" type="int" value="1"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
         <Property name="snapToTicks" type="boolean" value="true"/>
         <Property name="toolTipText" type="java.lang.String" value="Matrix B columns"/>
         <Property name="value" type="int" value="3"/>
@@ -420,8 +461,6 @@
           <Font name="Verdana" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Multiply"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonMultiplyMatrices_MouseClick"/>
@@ -433,7 +472,6 @@
           <Font name="Verdana" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Divide"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonDivideMatrices_MouseClick"/>
@@ -446,7 +484,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Subtract"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonSubtractMatrices_MouseClick"/>
@@ -458,10 +495,55 @@
           <Font name="Verdana" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Add"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonAddMatrices_MouseClick"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonTransposeMatrixOne">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Transpose"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonTransposeMatrixOne_MouseClick"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonTransposeMatrixTwo">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Transpose"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonTransposeMatrixTwo_MouseClick"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonSumMatrixOne">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Sum numbers"/>
+        <Property name="toolTipText" type="java.lang.String" value="Sums all numbers in matrix A"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonSumMatrixOne_MouseClick"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonSumMatrixTwo">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Sum numbers"/>
+        <Property name="toolTipText" type="java.lang.String" value="Sums all numbers in matrix B"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonSumMatrixTwo_MouseClick"/>
       </Events>
     </Component>
   </SubComponents>
